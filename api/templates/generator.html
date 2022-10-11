@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>generator</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        body,
+        div {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            max-width: 1170px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: #009385;
+            font-size: 1.5rem;
+        }
+
+        .form-input {
+            width: 100%;
+            min-height: 50px;
+            margin-bottom: 20px;
+        }
+
+        .form-input input {
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+
+        .form-input label {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .form-input input[type="submit"] {
+            width: max-content;
+
+        }
+
+        .form-input input[type="checkbox"] {
+            font-size: 30px;
+            width: 25px;
+            height: 25px;
+            vertical-align: middle;
+        }
+
+        .label-block {
+            display: block;
+        }
+
+        .label-inline {
+            vertical-align: middle;
+            /* display:inline-block; */
+        }
+
+        #btn_generate {
+            background: #009385;
+            color: rgb(255, 255, 255);
+            border: None;
+            border-radius: 8px;
+            padding: 15px 25px;
+        }
+
+        #btn_generate:hover {
+            background: #006b60;
+            color: rgb(255, 255, 255);
+            border: None;
+        }
+
+        .output {
+            margin: 15px 0;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>
+                URL GENERATOR
+            </h2>
+        </div>
+        <div class="form-input">
+            <label class="label-block" for="show_url">Show URL:</label>
+            <input id="show_url" type="text">
+        </div>
+        <div class="form-input">
+            <label class="label-block" for="taget_url">Taget URL:</label>
+            <input id="taget_url" type="text">
+        </div>
+        <div class="form-input">
+            <input id="shorten" type="checkbox" checked>
+            <label class="label-inline" for="shorten">Shorten with bit.ly</label>
+        </div>
+        <div class="form-input">
+            <input id="btn_generate" type="submit" value="Generate">
+        </div>
+
+        <div id="output-genarate" class="output"></div>
+        <div id="output-bitly" class="output"></div>
+
+    </div>
+    <script>
+        // Jquery 
+        $('#btn_generate').click(function () {
+            let showUrl = $('#show_url').val();
+            let targetUrl = $('#taget_url').val();
+            let url = new URL('http://' + window.location.hostname)
+            
+            url.searchParams.append('show', showUrl)
+            url.searchParams.append('target', targetUrl)
+            console.log(url.toString());
+            // $('#output-genarate').text(url.toString())
+            if ($('#shorten').is(':checked')) {
+                $.ajax({
+                    method: 'get',
+                    url: '/api/bitly-short',
+                    data: {
+                        url: url.toString()
+                    },
+                    success: function (response) {
+                        if (response != false) {
+                            $('#output-bitly').text(response)
+                        }
+
+                    }
+                })
+            }
+        })
+    </script>
+</body>
+
+</html>
