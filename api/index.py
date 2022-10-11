@@ -37,23 +37,32 @@ def bitly_shorten_url(long_url):
         return False
 
 @app.route('/')
-def redirect_url():
+def home():
     # facebookexternalhit
     # googlebot
-    show = request.args.get('show')
-    target = request.args.get('target')
     user_agent = request.headers.get('User-Agent')
-    if show is None or target is None:
-        return 'Welcome'
-    print(user_agent)
     if 'googlebot' in str(user_agent) or 'facebookexternalhit' in str(user_agent) or 'Twitterbot' in str(user_agent):
-        print('case 1')
-        return redirect(show, 302)
+        return '<h1><center>Welcome to DTG</h1></center>'
     else:
-        print('case 2')
-        return redirect(target, 302)
+        return render_template('es.html', title='generator')
+    
+@app.route('/es')
+def generator():
+    user_agent = request.headers.get('User-Agent')
+    if 'googlebot' in str(user_agent) or 'facebookexternalhit' in str(user_agent) or 'Twitterbot' in str(user_agent):
+        return '<h1><center>Welcome to DTG</h1></center>'
+    else:
+        return render_template('es.html')
 
-@app.route('/generator')
+@app.route('/br')
+def generator():
+    user_agent = request.headers.get('User-Agent')
+    if 'googlebot' in str(user_agent) or 'facebookexternalhit' in str(user_agent) or 'Twitterbot' in str(user_agent):
+        return '<h1><center>Welcome to DTG</h1></center>'
+    else:
+        return render_template('br.html')
+    
+@app.route('/app/generator')
 def generator():
     return render_template('generator.html', title='generator')
 
