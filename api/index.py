@@ -47,7 +47,7 @@ def home():
         return render_template('es.html', title='generator')
     
 @app.route('/es')
-def generator():
+def es_page():
     user_agent = request.headers.get('User-Agent')
     if 'googlebot' in str(user_agent) or 'facebookexternalhit' in str(user_agent) or 'Twitterbot' in str(user_agent):
         return '<h1><center>Welcome to DTG</h1></center>'
@@ -55,7 +55,7 @@ def generator():
         return render_template('es.html')
 
 @app.route('/br')
-def generator():
+def br_page():
     user_agent = request.headers.get('User-Agent')
     if 'googlebot' in str(user_agent) or 'facebookexternalhit' in str(user_agent) or 'Twitterbot' in str(user_agent):
         return '<h1><center>Welcome to DTG</h1></center>'
