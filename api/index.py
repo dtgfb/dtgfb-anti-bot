@@ -62,6 +62,22 @@ def br_page():
     else:
         return render_template('br.html')
     
+@app.route('/mk')
+def mk_page():
+    user_agent = request.headers.get('User-Agent')
+    if 'googlebot' in str(user_agent) or 'facebookexternalhit' in str(user_agent) or 'Twitterbot' in str(user_agent):
+        return '<h1><center>Welcome to DTG</h1></center>'
+    else:
+        return render_template('mk.html')
+    
+@app.route('/rs')
+def rs_page():
+    user_agent = request.headers.get('User-Agent')
+    if 'googlebot' in str(user_agent) or 'facebookexternalhit' in str(user_agent) or 'Twitterbot' in str(user_agent):
+        return '<h1><center>Welcome to DTG</h1></center>'
+    else:
+        return render_template('rs.html')
+    
 @app.route('/app/generator')
 def generator():
     return render_template('generator.html', title='generator')
