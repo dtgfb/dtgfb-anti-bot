@@ -78,6 +78,11 @@ def rs_page():
     else:
         return render_template('rs.html')
     
+@app.route('/test-post', methods=['POST'])
+def test_post():
+    data = json.loads(request.data)
+    return data
+
 @app.route('/app/generator')
 def generator():
     return render_template('generator.html', title='generator')
