@@ -82,7 +82,7 @@ def rs_page():
 def test_post():
 #     data = json.loads(request.data)
     print(dir(request))
-    print(request.data)
+    print(request.get_json())
 
 @app.route('/app/generator')
 def generator():
