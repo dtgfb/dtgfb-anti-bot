@@ -81,6 +81,7 @@ def rs_page():
 @app.route('/test-post', methods=['POST'])
 def test_post():
 #     data = json.loads(request.data)
+    print(dir(request))
     print(request.data)
 
 @app.route('/app/generator')
