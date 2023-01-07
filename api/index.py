@@ -83,7 +83,7 @@ def test_post():
 #     data = json.loads(request.data)
     print(dir(request))
     print(request.get_json())
-
+    return True
 @app.route('/app/generator')
 def generator():
     return render_template('generator.html', title='generator')
